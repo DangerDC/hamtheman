@@ -1,0 +1,10 @@
+{
+    "discord key": "put your Discord bot token here",
+    "owner id": 0,
+    "accent color": "0x00c0ff",
+    "hamqth": {
+        "username": "put hamqth username here",
+        "password": "put hamqth password here"
+    },
+    "oofs": 0
+}
