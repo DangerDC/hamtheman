@@ -27,7 +27,7 @@ cogs = ['modules.state',
 class HamTheManBot(commands.Bot):
     async def on_ready(self):
         await self.change_presence(
-            activity=discord.Game(name="with Baofengs | htm help"))
+            activity=discord.Game(name="with FCC regulations | bao help"))
         print(f'  Username: {self.user}')
         print(f'  Servers:  {len(self.guilds)}')
         print('-----\nReady...')
@@ -35,7 +35,7 @@ class HamTheManBot(commands.Bot):
 
 # THIS IS WHERE THE MAGIC STARTS
 
-print('WELCOME TO HAM THE MAN\n-----')
+print('WELCOME TO BAOFENG GANG\n-----')
 
 config = {}
 with open('config.json', 'r') as f:
@@ -45,7 +45,7 @@ with open('config.json', 'r') as f:
     print('  config loaded.')
 
 # this is a bit of a yikes, but it's an okay patch until I find out to actually do this
-bot = HamTheManBot(command_prefix=['htm ', 'Htm ', 'hTm ', 'htM ', 'HTm ', 'hTM ', 'HTM '], case_insensitive=True)
+bot = HamTheManBot(command_prefix=['htm ', 'Htm ', 'hTm ', 'htM ', 'HTm ', 'hTM ', 'HTM ', 'Bao ', 'bAo ', 'baO ', 'BAo ', 'bAO ', 'bao '], case_insensitive=True)
 
 # discord-y things
 bot.remove_command('help')

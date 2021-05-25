@@ -30,11 +30,11 @@ class LookupCog(commands.Cog):
             os.remove("conditions.gif")
 
         # download the latest conditions
-        r = requests.get('https://www.hamqsl.com/solar101pic.php')
-        open('conditions.gif', 'wb').write(r.content)
+        r = requests.get('http://www.hamqsl.com/solar101vhfpic.php')
+        open('conditions.png', 'wb').write(r.content)
 
-        with open('conditions.gif', 'rb') as f:
-            await ctx.send(file=discord.File(f, 'conditions.gif'))
+        with open('conditions.png', 'rb') as f:
+            await ctx.send(file=discord.File(f, 'conditions.png'))
 
     @commands.command()
     async def call(self, ctx, callsign: str):

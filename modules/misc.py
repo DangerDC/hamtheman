@@ -32,15 +32,19 @@ class MiscCog(commands.Cog):
 
     @commands.command()
     async def uptime(self, ctx):
-        await ctx.send(f'I have been alive for {self.calc_uptime()}')
+        await ctx.send(f'I have been transmitting on emergency frequencies for {self.calc_uptime()}')
 
     @commands.command()
     async def kerchunk(self, ctx):
-        await ctx.send('H...A...M...T...H...E...M...A...N...Repeater *kksshh*')
+        await ctx.send('B...A...O...F...E...N...G...Repeater *kksshh*')
 
     @commands.command()
-    async def standards(self, ctx):
-        await ctx.send('https://xkcd.com/927')
+    async def htm(self, ctx):
+        await ctx.send('```diff\n- Ham the man has fallen, he is no longer the great baofeng master, the almighty one, for he is kil```')
+
+    @commands.command()
+    async def allocation(self, ctx):
+        await ctx.send('https://media.discordapp.net/attachments/813574158894104629/846159691292737576/allocations.jpg')
 
     @commands.command()
     async def help(self, ctx):
@@ -57,7 +61,7 @@ class MiscCog(commands.Cog):
             .generate(
                 title="Help",
                 description=htm_about + self.calc_uptime(),
-                footer="HamTheMan Version 3.0.1"
+                footer="Baofeng UV-5R Revision 3.0.1"
             )
         )
 
@@ -107,6 +111,7 @@ STRINGS AND STUFF
 # help dialog
 help_message = ('**Core commands**\n'
                 '\t**cond:** Solar conditions (Source: hamqsl.com)\n'
+                '\t**allocation:** Amateur radio band allocation (Source: ARRL.org)\n'
                 '\t**utc:** Time in UTC\n'
                 '\t**call [callsign]:** Callsign information (Sources: HamQTH'
                 ', callook.info)\n'
@@ -116,25 +121,27 @@ help_message = ('**Core commands**\n'
                 '\t**about:** About the bot\n'
                 '\t**uptime:** Bot uptime\n'
                 '\n**The sillier things in life**\n'
-                '\t**kerchunk:** Pretend htm is a repeater\n'
-                '\t**standards:** To remind us how standards proliferate\n'
+                '\t**kerchunk:** Pretend little Baofeng is a repeater\n'
+                '\t**htm:** ham the man is kil\n'
                 '\t**oofs:** Counts all oofs in all servers since last '
                 'reboot\n'
                 '\n**This bot is also responsible for the oofs and bonks**')
 
 
-htm_about = ('**Author**\n'
+htm_about = ('**Authors**\n'
              '\tBen Johnson, AB3NJ\n'
-             '\tDiscord: thisguyistotallyben#3699\n'
+             '\t*Discord: thisguyistotallyben#3699*\n'
+             '\tTika Takumika, [REDACTED]\n'
+             '\t*Discord: Tika#6542*\n'
              '\n**Tools**\n'
              '\tPython 3.6\n'
              '\tDiscord API v1.3.3\n'
              '\n**Data Sources**\n'
              '\tSolar conditions from hamqsl.com\n'
              '\tOnline callsign lookups from HamQTH and callook.info\n'
+             '\tFrequency allocation chart from ARRL.org\n'
              '\n**Source Code**\n'
              '\thttps://github.com/thisguyistotallyben/hamtheman\n'
              '\n**Invite Link**\n'
-             '\thttps://discordapp.com/api/oauth2/authorize?client_id='
-             '368613435543650314&permissions=8&scope=bot\n'
+             '\thttps://discord.com/api/oauth2/authorize?client_id=825459867375763476&permissions=0&scope=bot\n'
              '\n**Uptime**\n\t')
