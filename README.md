@@ -5,7 +5,7 @@ HamTheMan (htm) is a Discord bot for various ham radio related things, including
 Make sure you are running Python 3.6 or higher.
 
 ### Discord
-You need discord.py: `pip3 install discord.py` or `pip3 install -U discord.py`
+You need the discord.py library: `pip install discord.py` or `pip install -U discord.py`
 
 ### API Keys
 You then need an API key for your bot (https://discordapp.com/developers/applications/) and an account with HamQTH (https://hamqth.com).
