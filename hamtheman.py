@@ -2,11 +2,7 @@
 # Purpose: It performs various ham radio-related tasks
 
 '''
-ONE SMALL LITTLE BIT OF SETUP: PLEASE READ
-
-Copy the file 'config_default.json' and name it 'config.json'.
-
-Then, fill out the information inside of it with the appropriate data.
+Fill out the information inside of config.json with the appropriate data.
 '''
 
 import time
@@ -27,7 +23,7 @@ cogs = ['modules.state',
 class HamTheManBot(commands.Bot):
     async def on_ready(self):
         await self.change_presence(
-            activity=discord.Game(name="with FCC regulations | bao help"))
+            activity=discord.Game(name="with FCC regulations | bao/htm help"))
         print(f'  Username: {self.user}')
         print(f'  Servers:  {len(self.guilds)}')
         print('-----\nReady...')
