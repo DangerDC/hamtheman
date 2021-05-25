@@ -61,7 +61,7 @@ class MiscCog(commands.Cog):
             .generate(
                 title="Help",
                 description=htm_about + self.calc_uptime(),
-                footer="Baofeng UV-5R Revision 3.0.1"
+                footer="Baofeng UV-5R Revision 1.0.0"
             )
         )
 
