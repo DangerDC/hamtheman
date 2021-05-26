@@ -16,8 +16,7 @@ cogs = ['modules.state',
         'modules.loader',
         'modules.lookup',
         'modules.misc',
-        'modules.morse',
-        'modules.reactions']
+        'modules.morse']
 
 
 class HamTheManBot(commands.Bot):
