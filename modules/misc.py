@@ -32,6 +32,10 @@ class MiscCog(commands.Cog):
     @commands.command()
     async def uptime(self, ctx):
         await ctx.send(f'I have been transmitting on emergency frequencies for {self.calc_uptime()}')
+        
+    @commands.command()
+    async def kerchunk(self, ctx):
+        await ctx.send('B...A...O...F...E...N...G...Repeater *kksshh*')
 
     @commands.command()
     async def time(self, ctx, offset: str):
@@ -136,6 +140,7 @@ help_message = ('**Core commands**\n'
                 '\t**about:** About the bot\n'
                 '\t**uptime:** Bot uptime\n'
                 '\n**The sillier things in life**\n'
+                '\t**kerchunk:** Pretend little Baofeng is a repeater\n'
                 '\t**htm:** ham the man is kil\n')
 
 
