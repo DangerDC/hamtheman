@@ -1,13 +1,12 @@
 import discord
 import time
 from discord.ext import commands
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 
 '''
 TODO:
-- Oof counter
-  - Make this server specific
+- implemenet timezone lookup in the time command such that you can type "bao time EST"
 '''
 
 
@@ -35,9 +34,24 @@ class MiscCog(commands.Cog):
         await ctx.send(f'I have been transmitting on emergency frequencies for {self.calc_uptime()}')
 
     @commands.command()
-    async def kerchunk(self, ctx):
-        await ctx.send('B...A...O...F...E...N...G...Repeater *kksshh*')
-
+    async def time(self, ctx, offset: str):
+        offset = int(offset)
+        full_time = str(datetime.now(timezone(timedelta(hours=offset))))
+        full_time_split = full_time.strip().split()
+        date = full_time_split[0]
+        time = full_time_split[1][0:8]
+        if offset > 0:
+            sign = "UTC+"
+            offset = str(offset)
+        else:
+            sign = "UTC-"
+            offset = str(abs(offset))
+        await ctx.send(embed=self.embed_service
+            .generate(
+                title='time in '+sign+offset,
+                description=f'**Date:** {date}\n**Time:** {time}'
+            )
+        )
     @commands.command()
     async def htm(self, ctx):
         await ctx.send('```diff\n- Ham the man has fallen, he is no longer the great baofeng master, the almighty one, for he is kil```')
@@ -61,7 +75,7 @@ class MiscCog(commands.Cog):
             .generate(
                 title="Help",
                 description=htm_about + self.calc_uptime(),
-                footer="Baofeng UV-5R Revision 1.0.0"
+                footer="Baofeng UV-5R Revision 1.0.1"
             )
         )
 
@@ -113,19 +127,16 @@ help_message = ('**Core commands**\n'
                 '\t**cond:** Solar conditions (Source: hamqsl.com)\n'
                 '\t**allocation:** Amateur radio band allocation (Source: ARRL.org)\n'
                 '\t**utc:** Time in UTC\n'
+                '\t**time [timezone]:** Time in specified timezone\n'
                 '\t**call [callsign]:** Callsign information (Sources: HamQTH'
                 ', callook.info)\n'
                 '\t**morse [message]:** Translates a message into morse code '
                 '(use quotes)\n'
-                '\n**#someta**\n'
+                '\n**Info**\n'
                 '\t**about:** About the bot\n'
                 '\t**uptime:** Bot uptime\n'
                 '\n**The sillier things in life**\n'
-                '\t**kerchunk:** Pretend little Baofeng is a repeater\n'
-                '\t**htm:** ham the man is kil\n'
-                '\t**oofs:** Counts all oofs in all servers since last '
-                'reboot\n'
-                '\n**This bot is also responsible for the oofs and bonks**')
+                '\t**htm:** ham the man is kil\n')
 
 
 htm_about = ('**Authors**\n'
@@ -133,6 +144,8 @@ htm_about = ('**Authors**\n'
              '\t*Discord: thisguyistotallyben#3699*\n'
              '\tTika Takumika, [REDACTED]\n'
              '\t*Discord: Tika#6542*\n'
+             '\tDane C.\n'
+             '\t*Discord: DangerDC#1522*\n'
              '\n**Tools**\n'
              '\tPython 3.6\n'
              '\tDiscord API v1.3.3\n'
